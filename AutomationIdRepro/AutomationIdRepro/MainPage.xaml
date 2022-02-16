@@ -1,0 +1,48 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutomationIdRepro.MainPage"
+             BackgroundColor="{DynamicResource SecondaryColor}">
+
+	<ScrollView AutomationId="MainScrollView">
+		<Grid AutomationId="MainGrid"
+			  RowSpacing="25"
+			  RowDefinitions="Auto,Auto,Auto,Auto,*"
+              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}"
+			  >
+            <Border AutomationId="Border" StrokeThickness="2" Grid.Row="0" Stroke="Gray" HorizontalOptions="Center" Padding="10">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"/>
+                </Border.StrokeShape>
+                <Border.Content>
+					<Label AutomationId="HelloLabel"
+						   Text="Hello, World!"
+						   SemanticProperties.HeadingLevel="Level1"
+						   FontSize="32"
+						   HorizontalOptions="Center" />
+				</Border.Content>
+			</Border>
+
+			<Entry AutomationId="TypeHereEntry"
+				   Placeholder="Type Here"
+				   Grid.Row="1"
+				   WidthRequest="250"
+				   HorizontalOptions="Center"/>
+			
+			<ContentView Grid.Row="2" AutomationId="ButtonContentView">
+				<ContentView.Content>
+					<Button AutomationId="Button"
+							Text="Click me"
+							FontAttributes="Bold"
+							HorizontalOptions="Center" />
+				</ContentView.Content>
+			</ContentView>
+			<Image AutomationId="DotNetImage"
+				   Grid.Row="3"
+				   Source="dotnet_bot.png"
+				   WidthRequest="250"
+				   HeightRequest="310"
+				   HorizontalOptions="Center" />
+
+		</Grid>
+	</ScrollView>
+</ContentPage>
